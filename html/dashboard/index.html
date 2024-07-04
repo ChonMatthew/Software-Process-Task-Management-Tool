@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="en" dir="ltr">
-<!--Title Page and Links-->
 
+<!--Title Page and Links-->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>TaskTool | Task Management Tool</title>
 
+  <!-- Imports and Links -->
   <!-- Favicon -->
   <link rel="shortcut icon" href="../assets/images/favicon.ico">
 
@@ -35,10 +36,9 @@
 </head>
 
 <!--Change Theme in Body Tag-->
-
 <body class="light theme-color-default  ">
 
-  <!-- Loader -->
+  <!-- Loading Screen -->
   <div id="loading">
     <div class="loader simple-loader">
       <div class="loader-body">
@@ -53,6 +53,7 @@
         <h4 class="logo-title">TaskTool</h4>
       </a>
 
+      <!-- Sidebar Toggle Button (Open)-->
       <div class="sidebar-toggle" data-toggle="sidebar" data-active="true">
         <i class="icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -123,20 +124,7 @@
               </i>
             </a>
             <ul class="sub-nav collapse" id="sidebar-user" data-bs-parent="#sidebar-menu">
-              <li class="nav-item">
-                <a class="nav-link " href="../dashboard/app/user-profile.html">
-                  <i class="icon">
-                    <svg class="icon-10" xmlns="http://www.w3.org/2000/svg" width="10" viewBox="0 0 24 24"
-                      fill="currentColor">
-                      <g>
-                        <circle cx="12" cy="12" r="8" fill="currentColor"></circle>
-                      </g>
-                    </svg>
-                  </i>
-                  <i class="sidenav-mini-icon"> U </i>
-                  <span class="item-name">User Profile</span>
-                </a>
-              </li>
+              <!-- Add Members Link -->
               <li class="nav-item">
                 <a class="nav-link " href="../dashboard/app/user-add.html">
                   <i class="icon">
@@ -151,6 +139,8 @@
                   <span class="item-name">Add Members</span>
                 </a>
               </li>
+
+              <!-- Members Link Link -->
               <li class="nav-item">
                 <a class="nav-link " href="../dashboard/app/user-list.html">
                   <i class="icon">
@@ -169,6 +159,7 @@
           </li>
           <li>
 
+            <!-- Horizontal Line -->
             <hr class="hr-horizontal">
           </li>
 
@@ -240,6 +231,7 @@
               <input type="search" class="form-control" placeholder="Search...">
             </div> -->
 
+            <!-- Side bar toggler in Navbar -->
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
             aria-label="Toggle navigation">
@@ -315,7 +307,7 @@
                   <div class="m-0 shadow-none card">
                     <div class="py-3 card-header d-flex justify-content-between bg-primary">
                       <div class="header-title">
-                        <h5 class="mb-0 text-white">All Message</h5>
+                        <h5 class="mb-0 text-white">Recent Message</h5>
                       </div>
                     </div>
 

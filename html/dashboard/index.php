@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['user_id'])) {
+  header("Location: sign-in.html");
+  exit();
+}
+
+// Fetch the user ID from the session
+$user_id = $_SESSION['user_id'];
+
+?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
 
@@ -165,9 +178,10 @@
             <hr class="hr-horizontal">
           </li>
 
+          
         
         <li class="nav-item">
-          <button class="nav-link " href="">
+          <button class="nav-link " data-bs-toggle="modal" data-bs-target="#staticBackdropLive" href="">
             <i class="icon">
               <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path path opacity="0.4"
@@ -180,6 +194,9 @@
           </button>
         </li>
 
+  
+      
+
           <!--Workspace Header-->
           <li class="nav-item static-item">
             <a class="nav-link static-item disabled" href="#" tabindex="-1">
@@ -188,10 +205,13 @@
             </a>
           </li>
 
+
+          
+
           <!--Project Name Header--> <!--Change Later-->
           <li class="nav-item">
             <a class="nav-link " href="dashboard.html">
-              <i class="icon">
+            <i class="icon">
                 <svg class="icon-20" width="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path path opacity="0.4"
                     d="M2 11.0786C2.05 13.4166 2.19 17.4156 2.21 17.8566C2.281 18.7996 2.642 19.7526 3.204 20.4246C3.986 21.3676 4.949 21.7886 6.292 21.7886C8.148 21.7986 10.194 21.7986 12.181 21.7986C14.176 21.7986 16.112 21.7986 17.747 21.7886C19.071 21.7886 20.064 21.3566 20.836 20.4246C21.398 19.7526 21.759 18.7896 21.81 17.8566C21.83 17.4856 21.93 13.1446 21.99 11.0786H2Z"
@@ -426,6 +446,33 @@
         </div>
       </div>
     </div>
+
+    <!-- Modal for Project Creation -->
+
+    <div id="staticBackdropLive" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
+        aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLiveLabel">Add New Project</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="addProjectForm">
+                  <div class="mb-3">
+                    <label for="projectName" class="form-label">Project Name</label>
+                    <input type="text" class="form-control" id="projectName" name="projectName" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Add Project</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
 
     <div class="conatiner-fluid content-inner mt-n5 py-0">
       <div class="row">
@@ -690,6 +737,32 @@
 
   <!-- App Script -->
   <script src="../assets/js/hope-ui.js" defer></script>
+
+<!-- Include jQuery if not already included -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  
+  <script>
+    $(document).ready(function() {
+    
+      // Handle form submission
+      $('#addProjectForm').submit(function(event) {
+        event.preventDefault();
+    
+        $.ajax({
+          url: 'add_project.php',
+          type: 'POST',
+          data: $(this).serialize(),
+          success: function(response) {
+            alert(response);
+            // Optionally, you can refresh the page or update the project list dynamically here
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            alert('Error adding project: ' + textStatus);
+          }
+        });
+      });
+    });
+    </script>
 
 </body>
 

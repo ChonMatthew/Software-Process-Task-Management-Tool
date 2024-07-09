@@ -39,7 +39,7 @@
                            </a>
                            <h2 class="mb-2 text-center">Sign In</h2>
                            <p class="text-center">Login to stay connected.</p>
-                           <form id="loginForm" action="index.php">
+                           <form id="loginForm">
                               <div class="row">
                                  <div class="col-lg-12">
                                     <div class="form-group">
@@ -122,7 +122,7 @@
             if (data.status === 'error') {
                document.getElementById("error_message").textContent = data.message;
             } else {
-               window.location.href = '../index.php';
+               window.location.href = '../index_empty.html';
             }
          })
          .catch(error => {

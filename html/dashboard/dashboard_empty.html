@@ -402,6 +402,64 @@
       </div>
     </div>
 
+    <!-- Modal for Project Creation -->
+
+    <div id="staticBackdropLive" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" 
+        aria-labelledby="staticBackdropLiveLabel" style="display: none;" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLiveLabel">Add New Task</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form id="addProjectForm">
+                  <div class="mb-3">
+                    <label for="projectName" class="form-label">Task Name</label>
+                    <input type="text" class="form-control" id="projectName" name="projectName" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="choices-single-default">User</label>
+                    <select class="form-select" data-trigger="" name="choices-single-default" id="choices-single-default">
+                        <option value="">Select a user</option>
+                        <option value="Choice 1">Sean Wong</option>
+                        <option value="Choice 2">Jun Teng</option>
+                        
+                    </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="choices-single-default">Status</label>
+                  <select class="form-select" data-trigger="" name="choices-single-default" id="choices-single-default">
+                      <option value="">Select a Status</option>
+                      <option value="Choice 1">Pending</option>
+                      <option value="Choice 2">On schedule</option>
+                      <option value="Choice 3">Complete</option>
+                  </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="exampleInputdate">Due Date</label>
+                <input type="date" class="form-control" id="exampleInputdate" value="2019-12-18">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="choices-single-default">Priority</label>
+              <select class="form-select" data-trigger="" name="choices-single-default" id="choices-single-default">
+                  <option value="">Select a Priority</option>
+                  <option value="Choice 1">High</option>
+                  <option value="Choice 1">Low</option>
+              </select>
+          </div>
+                  <div class="mb-3">
+                    <label for="description" class="form-label">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+                  </div>
+                  <a href="dashboard.html">Add Task</a>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
     <!-- Table content Kaiju No.9 -->
     <div class="conatiner-fluid content-inner mt-n5 py-0">
       <div class="row">
@@ -412,7 +470,7 @@
                 <h4 class="card-title">In Progress</h4>
               </div>
               <div class="text-center">
-                <a href="#" type="button" class="btn btn-primary">Add Task</a>
+                <a href="#" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdropLive">Add Task</a>
               </div>
             </div>
             <div class="card-body p-0">
